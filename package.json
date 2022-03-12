@@ -1,0 +1,30 @@
+{
+  "name": "restaurant-single-pager",
+  "version": "1.0.0",
+  "description": "A single page application for a non-existant restaurant using webpack module hot loading.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavanFriedel/restaurant-single-pager.git"
+  },
+  "author": "Javan Friedel <javanfriedel@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JavanFriedel/restaurant-single-pager/issues"
+  },
+  "homepage": "https://github.com/JavanFriedel/restaurant-single-pager#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^4.7.4"
+  }
+}
