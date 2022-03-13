@@ -1,3 +1,69 @@
-body {
-  background-color: blue;
+* {
+  padding: 0;
+  margin: 0;
 }
+
+:root {
+  --main-color: darkgrey;
+}
+
+body {
+  box-sizing: border-box;
+
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(51, 51, 51);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-size: 28px;
+}
+
+/* Debugging Purposes only, remove before production */
+nav > * {
+ border: 1px dashed red;
+ min-width: 40px;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(51, 51, 51);
+}
+
+.nav-btn-list {
+  display: flex;
+  gap: 30px;
+  align-self: flex-end;
+}
+
+.nav-socials {
+  display: flex;
+}
+
+.social-btn {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
