@@ -1,7 +1,12 @@
 import "./style.css";
 import { genHome } from "./home";
 import { genMenu } from "./menu";
+import { genAbout } from "./about";
 import { createDiv } from "../helpFunctions/createDiv";
+
+import facebook from "../src/images/facebook.png";
+import twitter from "../src/images/twitter.png";
+import instagram from "../src/images/instagram.png";
 
 const content = document.getElementById("content");
 genHome();
@@ -20,11 +25,11 @@ function reRender(node = "home") {
   const main = document.querySelector("main");
 
   let content;
-  if (node == "about") {
+  if (node === "about") {
     // Generate About
-    content = genHome();
+    content = genAbout();
     console.log("About Page Gen");
-  } else if (node == "menu") {
+  } else if (node === "menu") {
     // Generate Menu
     content = genMenu();
     console.log("Menu Page Gen");
@@ -39,23 +44,29 @@ function renderNav() {
   const navbar = document.createElement("nav");
 
   // Create Nav Logo
-  const navLogo = createDiv("nav-log", "LOGO here");
+  const navLogo = createDiv("nav-log", "🥡");
 
   // Create Nav Button List
   const navList = createDiv("nav-btn-list");
 
   const navBtnHome = createDiv(["nav-btn", "navHome", "navSelected"], "Home"); // Home Btn
-  navBtnHome.addEventListener("click", () => {
+  navBtnHome.addEventListener("click", (e) => {
+    document.querySelector(".navSelected").classList.remove("navSelected");
+    e.target.classList.add("navSelected");
     reRender("home");
   });
 
   const navBtnMenu = createDiv(["nav-btn", "navMenu"], "Menu"); // Menu Button
-  navBtnMenu.addEventListener("click", () => {
+  navBtnMenu.addEventListener("click", (e) => {
+    document.querySelector(".navSelected").classList.remove("navSelected");
+    e.target.classList.add("navSelected");
     reRender("menu");
   });
 
   const navBtnAbout = createDiv(["nav-btn", "navAbout"], "About"); // About Button
-  navBtnAbout.addEventListener("click", () => {
+  navBtnAbout.addEventListener("click", (e) => {
+    document.querySelector(".navSelected").classList.remove("navSelected");
+    e.target.classList.add("navSelected");
     reRender("about");
   });
 
@@ -64,9 +75,24 @@ function renderNav() {
 
   // Create Social Buttons
   const navSocials = createDiv("nav-socials");
-  const socialFace = createDiv("social-btn", "f");
-  const socialTwit = createDiv("social-btn", "t");
-  const socialInst = createDiv("social-btn", "i");
+
+  // --- Facebook Icon ---
+  const socialFace = createDiv("social-btn");
+  const socialIcon = new Image();
+  socialIcon.src = facebook;
+  socialFace.append(socialIcon);
+
+  // --- Twitter Icon ---
+  const socialTwit = createDiv("social-btn");
+  const twitterIcon = new Image();
+  twitterIcon.src = twitter;
+  socialTwit.append(twitterIcon);
+
+  // --- Instagram Icon ---
+  const socialInst = createDiv("social-btn");
+  const instaIcon = new Image();
+  instaIcon.src = instagram;
+  socialInst.append(instaIcon);
 
   navSocials.append(socialFace, socialTwit, socialInst);
 
@@ -97,4 +123,3 @@ function renderContainer() {
 }
 
 renderContainer();
-reRender("about");

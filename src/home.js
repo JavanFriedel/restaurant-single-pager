@@ -27,7 +27,7 @@ function genHero() {
   return row;
 }
 
-function genInfo() {
+export function genInfo() {
   const row = createDiv("row");
   const divider = createTitle("Info");
   const content = createDiv("storeContent");

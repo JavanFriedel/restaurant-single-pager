@@ -10,6 +10,7 @@
 
 body {
   box-sizing: border-box;
+  background: url('./images/menu/wood.jpg');
 
 }
 
@@ -57,13 +58,50 @@ footer {
   align-self: flex-end;
 }
 
+.nav-log {
+  font-size: 60px;
+  padding-left: 40px;
+}
+
 .nav-btn {
   padding: 10px 20px;
   border-radius: 5px 5px 0 0;
+  cursor: pointer;
 }
 
 .nav-socials {
   display: flex;
+  padding-right: 40px;
+}
+
+.addressCon {
+  width: 1200px;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.aboutContainer {
+  background-color: rgba(0, 0, 0, 0.657);
+  color: white;
+  min-height: 80vh;
+}
+
+.aboutAddress {
+  text-align: center;
+  margin: auto;
+  font-size: 48px;
+}
+
+.map {
+  margin: 40px;
+}
+
+.mission {
+  text-align: center;
+  font-size: 36px;
 }
 
 .social-btn {
@@ -74,6 +112,13 @@ footer {
   margin: 10px;
   border-radius: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn > img {
+  max-width: 80%;
 }
 
 .wrapper {
@@ -84,6 +129,7 @@ footer {
 .row {
   min-height: 200px;
   padding: 10px;
+  margin: 20px 0;
 }
 
 .row:nth-child(2n){
@@ -242,15 +288,18 @@ form > * > * {
 .menuContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: 150px;
   gap: 20px;
+  align-items: center;
+  color: white;
 }
 
 .menuItem {
   display: flex;
-  background-color: darkgrey;
+  background-color: rgba(0, 0, 0, 0.548);
+  height: 150px;
   padding: 10px;
   gap: 10px;
-
 }
 
 .menuItem img {
@@ -274,4 +323,6 @@ form > * > * {
 .menuPrice {
   color: red;
 }
+
+
 
