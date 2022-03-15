@@ -1,13 +1,38 @@
 import "./style.css";
+import { genHome } from "./home";
+import { genMenu } from "./menu";
+import { createDiv } from "../helpFunctions/createDiv";
 
 const content = document.getElementById("content");
+genHome();
 
-function createDiv(className, textContent = "") {
-  const element = document.createElement("div");
-  element.classList.add(className);
-  element.textContent = textContent;
+function wipeMain() {
+  const mainCon = document.querySelector("main");
 
-  return element;
+  while (mainCon.firstChild) {
+    mainCon.removeChild(mainCon.firstChild);
+  }
+}
+
+function reRender(node = "home") {
+  wipeMain();
+
+  const main = document.querySelector("main");
+
+  let content;
+  if (node == "about") {
+    // Generate About
+    content = genHome();
+    console.log("About Page Gen");
+  } else if (node == "menu") {
+    // Generate Menu
+    content = genMenu();
+    console.log("Menu Page Gen");
+  } else {
+    content = genHome();
+  }
+
+  main.appendChild(content);
 }
 
 function renderNav() {
@@ -19,11 +44,20 @@ function renderNav() {
   // Create Nav Button List
   const navList = createDiv("nav-btn-list");
 
-  const navBtnHome = createDiv("nav-btn", "Home"); // Home Btn
+  const navBtnHome = createDiv(["nav-btn", "navHome", "navSelected"], "Home"); // Home Btn
+  navBtnHome.addEventListener("click", () => {
+    reRender("home");
+  });
 
-  const navBtnMenu = createDiv("nav-btn", "Menu"); // Menu Button
+  const navBtnMenu = createDiv(["nav-btn", "navMenu"], "Menu"); // Menu Button
+  navBtnMenu.addEventListener("click", () => {
+    reRender("menu");
+  });
 
-  const navBtnAbout = createDiv("nav-btn", "About"); // About Button
+  const navBtnAbout = createDiv(["nav-btn", "navAbout"], "About"); // About Button
+  navBtnAbout.addEventListener("click", () => {
+    reRender("about");
+  });
 
   // Add buttons to navList
   navList.append(navBtnHome, navBtnMenu, navBtnAbout);
@@ -45,7 +79,9 @@ function renderNav() {
 
 function renderMain() {
   const mainContainer = document.createElement("main");
+  const content = genHome();
 
+  mainContainer.append(content);
   return mainContainer;
 }
 
@@ -61,7 +97,4 @@ function renderContainer() {
 }
 
 renderContainer();
-
-// TODO
-// - Make Helper functions for adding elements to dom
-//
+reRender("about");

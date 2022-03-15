@@ -5,11 +5,16 @@
 
 :root {
   --main-color: darkgrey;
+  --btn-color: rgb(189, 0, 0);
 }
 
 body {
   box-sizing: border-box;
 
+}
+
+img {
+  max-width: 100%;
 }
 
 #content {
@@ -33,7 +38,6 @@ nav {
 
 /* Debugging Purposes only, remove before production */
 nav > * {
- border: 1px dashed red;
  min-width: 40px;
 }
 
@@ -53,6 +57,11 @@ footer {
   align-self: flex-end;
 }
 
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 5px 5px 0 0;
+}
+
 .nav-socials {
   display: flex;
 }
@@ -65,5 +74,204 @@ footer {
   margin: 10px;
   border-radius: 20px;
   text-align: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 25px auto;
+}
+
+.row {
+  min-height: 200px;
+  padding: 10px;
+}
+
+.row:nth-child(2n){
+  background-color: lightgrey;
+}
+
+.heroRow {
+  height: 300px;
+  overflow:hidden;
+  position: relative;
+  background: black;
+  display: flex;
+  justify-content: end;
+  color: white;
+}
+.heroRow > * {
+  z-index: 2;
+  position: relative;
+}
+
+.heroRow > img {
+  position: absolute;
+  top: -70%;
+  left: 0px;
+  height: 200%;
+  min-width: 850px;
+  -webkit-mask-image: linear-gradient(to left, transparent 5%, black 90%);
+  mask-image: linear-gradient(to left, transparent 10%, black 75%);
+  z-index: 1;
+}
+
+.heroTextContainer {
+  width: 27em;
+  padding:20px 60px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.heroTitle {
+  text-align: end;  
+  font-size: 60px;
+
+}
+
+.heroText {
+  padding: 10px;
+}
+
+.heroBtn {
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.363);
+  background-color: var(--btn-color);
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.titleBox {
+  background-image: url("./images/divider.png");
+  background-repeat: no-repeat;
+  background-position: center;  
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-size: 28px;
+  filter:opacity(.75);
+}
+
+.storeContent {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+}
+
+.storeContent > * {
+  flex: 1;
+}
+
+.storeContent p {
+  font-size: 18px;
+  margin: 10px;
+  line-height: 150%;
+}
+
+.testiRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+.testiAuthor {
+  margin: 20px;
+}
+
+.navSelected {
+  background-color: white;
+  color: black;
+}
+
+.reserveRow {
+  display: flex;
+  width: 100%;
+  justify-content: ;
+}
+.reserveRow img {
+  width: 600px;
+  margin: 0 40px 4px;
+}
+
+.reserveRow form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: auto;
+  gap: 20px;
+}
+
+label {
+  margin: 5px;
+  text-align: end;
+}
+
+form > * {
+  display: flex;
+  width: 100%;;
+}
+
+form > * > * {
+  flex: 1;
+}
+
+.reserveRow button {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.menuItem {
+  display: flex;
+  background-color: darkgrey;
+  padding: 10px;
+  gap: 10px;
+
+}
+
+.menuItem img {
+  max-width: 50%;
+}
+
+.menuText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.menuText > button {
+  margin-top: auto;
+}
+
+.menuTitle {
+  font-size: 28px;
+}
+
+.menuPrice {
+  color: red;
 }
 

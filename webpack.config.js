@@ -1,22 +1,39 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  mode: "development",
+  entry: {
+    template: "./src/index.js",
+  },
   output: {
-    filename: "script.js",
+    filename: "script-[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
     publicPath: "/",
   },
-  mode: "development",
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
